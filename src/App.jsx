@@ -1,9 +1,8 @@
 import "./App.css";
 import * as React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Dropdown from "react-bootstrap/Dropdown";
 import Managerdashboard from "./Managerdashboard";
-import { Link, Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import Home from "./Home";
 import Servicerequest from "./Servicerequest";
 import Leadrequest from "./Leadrequest";
@@ -12,7 +11,10 @@ import Login from "./Login";
 import Forgotpassword from "./Forgotpassword";
 import Updatepassword from "./Updatepassword";
 
+
 function App() {
+
+  
   return (
     <div className="App">
       <div className="navBar">
@@ -27,37 +29,9 @@ function App() {
             alt=""
           />
           <h5 variant="contained" color="success">
-            Name
+            Manager
           </h5>
-          <Dropdown>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
-              Leads
-            </Dropdown.Toggle>
-            <Dropdown.Menu>
-              <Link to="/leadrequests">
-                {" "}
-                <Dropdown.Item href="#/action-1">Service</Dropdown.Item>
-              </Link>
-
-              <Dropdown.Item disabled href="#/action-2">
-                Body Shop{" "}
-              </Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-          <Dropdown>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
-              Service Request
-            </Dropdown.Toggle>
-            <Dropdown.Menu>
-              <Link to="/servicerequests">
-                <Dropdown.Item href="#/action-1">Service</Dropdown.Item>
-              </Link>
-
-              <Dropdown.Item disabled href="#/action-2">
-                Body Shop{" "}
-              </Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
+         
         </div>
       </div>
       <Routes>

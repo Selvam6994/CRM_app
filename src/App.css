@@ -58,10 +58,13 @@
 .managerDashBoard{
   
   margin: 20px 0 0 0;
-  max-height: 100vh;
   display: flex;
   justify-content: center;
   /* align-items: center; */
+}
+.serviceOptions{
+  display: flex;
+  justify-content: space-between;
 }
 
 .mainContent{
