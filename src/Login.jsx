@@ -3,6 +3,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { Formik,useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
+import api from "./global"
 
 function Login() {
     const navigate = useNavigate();
@@ -13,7 +14,7 @@ function Login() {
       password: "",
     },
     onSubmit: async (values) => {
-      const postData = await fetch("http://localhost:4000/CRM/logInManager", {
+      const postData = await fetch(`${api}/CRM/logInManager`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",

@@ -5,12 +5,13 @@ import Servicerequestopen from '../src/Service Requests/Servicerequestopen';
 import Servicerequestinprocess from '../src/Service Requests/Servicerequestinprocess';
 import Servicerequestreleased from '../src/Service Requests/Servicerequestreleased';
 import Sevicerequestcancelled from '../src/Service Requests/Sevicerequestcancelled';
+import api from "./global"
 
 function Servicerequest() {
   const [serviceRequest, setServiceRequest] = useState([]);
   const get_serviceRequest_data = async () => {
     const getData = await fetch(
-      "http://localhost:4000/CRM/showServiceRequests",
+      `${api}/CRM/showServiceRequests`,
       {
         headers: {
           "x-auth-managerToken": localStorage.getItem("managerToken"),

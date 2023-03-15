@@ -4,6 +4,8 @@ import Teamlead from "./Teamlead";
 import Technicians from "./Technicians";
 import Dropdown from "react-bootstrap/Dropdown";
 import { Link } from "react-router-dom";
+import IconButton from "@mui/material/IconButton";
+import AddIcon from '@mui/icons-material/Add';
 
 
 
@@ -43,7 +45,10 @@ import { Link } from "react-router-dom";
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-        
+          <Link style={{textDecoration:"none"}} to="/addemployee">
+          <IconButton aria-label="fingerprint" >
+                    <AddIcon color="secondary"/><span >Add Employee</span>
+                  </IconButton></Link>
           </div>
    <Admin></Admin>
     <Teamlead></Teamlead>

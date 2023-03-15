@@ -12,6 +12,7 @@ import Forgotpassword from "./Forgotpassword";
 import Updatepassword from "./Updatepassword";
 
 
+
 function App() {
 
   
@@ -64,6 +65,7 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/forgotpassword" element={<Forgotpassword />}></Route>
         <Route path="/:email/updatepassword" element={<Updatepassword />}></Route>
+        
       </Routes>
     </div>
   );

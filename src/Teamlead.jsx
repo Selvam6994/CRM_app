@@ -6,6 +6,12 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import IconButton from "@mui/material/IconButton";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from '@mui/icons-material/Delete';
+import api from "./global"
+
+
 
 
 
@@ -13,7 +19,7 @@ function Teamlead() {
 
     const [teamLeadData,setTeamLeadData] =useState([])
     const get_teamLead_data=async()=>{
-      const getData =await fetch("http://localhost:4000/CRM/showTeamLead",{
+      const getData =await fetch(`${api}/CRM/showTeamLead`,{
         headers: {
           "x-auth-managerToken": localStorage.getItem("managerToken"),
         },
@@ -30,6 +36,7 @@ function Teamlead() {
   return (
     <div>
     <h3 style={{color:"#E4A11B"}}>Team Lead</h3>
+    
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
@@ -55,6 +62,12 @@ function Teamlead() {
               <TableCell align="right">{data._id}</TableCell>
               <TableCell align="right">{data.email}</TableCell>
               <TableCell align="right">{data.department}</TableCell>
+              <TableCell align="right"><IconButton aria-label="fingerprint" >
+                    <EditIcon color="secondary"/>
+                  </IconButton>
+                  <IconButton aria-label="fingerprint" >
+                  <DeleteIcon color="error" />
+                  </IconButton></TableCell>
             </TableRow>
           ))}
         </TableBody>

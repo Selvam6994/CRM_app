@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { Formik,useFormik } from "formik";
+import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
+import api from "./global"
 
 function Signup() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const [formState, setFormState] = useState("primary");
-  const { values, handleChange, handleSubmit } = useFormik({
+  const { values, handleSubmit, handleChange } = useFormik({
     initialValues: {
       name: "",
       email: "",
+      newPassword: "",
       password: "",
     },
     onSubmit: async (values) => {
-      const postData = await fetch("http://localhost:4000/CRM/signUpManager", {
+      const postData = await fetch(`${api}/CRM/signUpManager`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -52,18 +54,29 @@ function Signup() {
       <TextField
         id="standard-basic"
         label="Enter New Password"
+        name="newPassword"
+        onChange={handleChange}
+        values={values.newPassword}
         variant="standard"
+        type="password"
       />
       <TextField
         name="password"
         onChange={handleChange}
+        values={values.password}
         id="standard-basic"
         label="Confirm Password"
         variant="standard"
         type="password"
       />
-      <Button color={formState} type="submit" variant="contained">
-       {formState=="primary"?"Submit":"Retry"}
+
+      <Button
+        disabled={values.newPassword === values.password ? false : true}
+        color={formState}
+        type="submit"
+        variant="contained"
+      >
+        {formState == "primary" ? "Submit" : "Retry"}
       </Button>
 
       {formState == "warning" ? <h3>Invalid Credentials</h3> : ""}

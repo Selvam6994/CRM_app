@@ -3,7 +3,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
-// import api from "./global";
+import api from "./global";
 
 function Forgotpassword() {
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ function Forgotpassword() {
     },
     onSubmit: async (values) => {
       const send_email_to_resetPassword = await fetch(
-        'http://localhost:4000/CRM/forgotPassword',
+        `${api}/CRM/forgotPassword`,
         {
           method: "POST",
           headers: { "Content-type": "application/json" },
@@ -46,7 +46,7 @@ function Forgotpassword() {
       otp: "",
     },
     onSubmit: async (values) => {
-      const get_otp = await fetch('http://localhost:4000/CRM/OTP', {
+      const get_otp = await fetch(`${api}/CRM/OTP`, {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify(values),

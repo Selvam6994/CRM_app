@@ -6,12 +6,13 @@ import Contactedleads from './Leads/Contactedleads';
 import Lostleads from './Leads/Lostleads';
 import Newleads from './Leads/Newleads';
 import Qualifedleads from './Leads/Qualifedleads';
+import api from "./global"
 
 function Leadrequest() {
     const [leadRequest, setLeadRequest] = useState([]);
     const get_leadRequest_data = async () => {
         const getData = await fetch(
-            "http://localhost:4000/CRM/showLeads",
+                `${api}/CRM/showLeads`,
             {
                 headers: {
                     "x-auth-managerToken": localStorage.getItem("managerToken"),
